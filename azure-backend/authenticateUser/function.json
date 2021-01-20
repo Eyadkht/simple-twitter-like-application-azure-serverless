@@ -1,0 +1,36 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "table",
+      "direction": "in",
+      "name": "userTable",
+      "tableName": "users",
+      "partitionKey": "user",
+      "take": "1",
+      "filter": "username eq '{username}'",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "sessions",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "table",
+      "direction": "in",
+      "name": "inputUserTable",
+      "tableName": "users",
+      "partitionKey": "user",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "table",
+      "direction": "in",
+      "name": "inputFollowersTable",
+      "tableName": "followers",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "table",
+      "name": "outputFollowersTable",
+      "tableName": "followers",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    }
+  ]
+}
